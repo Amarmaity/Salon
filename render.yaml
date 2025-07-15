@@ -2,12 +2,11 @@ services:
   - type: web
     name: salon-app
     env: python
+    runtime: python3.12  # ← Add this line
     buildCommand: |
+      ./.render-build.sh
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
       python manage.py migrate
-    startCommand: gunicorn Salon.wsgi:application
+    startCommand: "gunicorn Salon.wsgi:application"
     plan: free
-    envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: Salon.settings
