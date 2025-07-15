@@ -20,7 +20,7 @@ const RegisterCustomer = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://salon-oa03.onrender.com//api/register/', {
+      const response = await fetch('https://salon-oa03.onrender.com/api/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
