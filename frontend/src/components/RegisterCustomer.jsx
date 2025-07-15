@@ -7,7 +7,7 @@ const RegisterCustomer = () => {
     password: '',
   });
 
-  const [message, setMessage] = useState('');
+  
 
   const handleChange = (e) => {
     setFormData({ 
