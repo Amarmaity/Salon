@@ -1,0 +1,8 @@
+# render.yaml
+services:
+  - type: web
+    name: salon-app
+    env: python
+    buildCommand: "./.render-build.sh && pip install -r requirements.txt"
+    startCommand: "gunicorn Salon.wsgi:application"
+    plan: free
