@@ -1,11 +1,13 @@
-# render.yaml
 services:
   - type: web
     name: salon-app
     env: python
     buildCommand: |
-      ./.render-build.sh
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
-    startCommand: "gunicorn Salon.wsgi:application"
+      python manage.py migrate
+    startCommand: gunicorn Salon.wsgi:application
     plan: free
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: Salon.settings
